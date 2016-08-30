@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>WeUI</title>
+    <title>流秘</title>
     <link rel="stylesheet" href="../style/weui.css"/>
     <link rel="stylesheet" href="./example.css"/>
 </head>
@@ -12,83 +12,82 @@
 	<div class="weui_cells">
         <div class="weui_cell">
             <div class="weui_cell_bd weui_cell_primary">
-                <input class="weui_input" type="number" pattern="[0-9]*" placeholder="请输入手机号">
+                <input id="ordermphone" maxlength="11" class="weui_input" type="number" pattern="[0-9]*" placeholder="请输入手机号">
             </div>
-            <div class="weui_cell_ft">
-                                            江苏无锡
+            <div id="ordermplace" class="weui_cell_ft">
             </div>
         </div>
     </div>
 </div>
 <div class="bd">
-    <div class="weui_cells weui_cells_access">
-        <a class="weui_cell" href="javascript:;">
+    <div class="weui_cells weui_cells_access" style="display: none;">
+        <a onclick="dobuy('移动流量包10M',3)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包10M</p>
             </div>
             <div class="weui_cell_ft" style="color: red;">3.00(元)</div>
         </a>
-        <a class="weui_cell" href="javascript:;">
+        <a onclick="dobuy('移动流量包30M',5)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包30M</p>
             </div>
             <div class="weui_cell_ft" style="color: red;">5.00(元)</div>
         </a>
-        <a class="weui_cell" href="javascript:;">
+        <a onclick="dobuy('移动流量包100M',10)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包100M</p>
             </div>
             <div class="weui_cell_ft" style="color: red;">10.00(元)</div>
         </a>
-        <a class="weui_cell" href="javascript:;">
+        <a onclick="dobuy('移动流量包300M',20)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包300M</p>
             </div>
             <div class="weui_cell_ft" style="color: red;">20.00(元)</div>
         </a>
-        <a class="weui_cell" href="javascript:;">
+        <a onclick="dobuy('移动流量包500M',30)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包500M</p>
             </div>
             <div class="weui_cell_ft" style="color: red;">30.00(元)</div>
         </a>
-        <a class="weui_cell" href="javascript:;">
+        <a onclick="dobuy('移动流量包700M',40)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包700M</p>
             </div>
             <div class="weui_cell_ft" style="color: red;">40.00(元)</div>
         </a>
-        <a class="weui_cell" href="javascript:;">
+        <a onclick="dobuy('移动流量包1G',50)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包1G</p>
             </div>
             <div class="weui_cell_ft" style="color: red;">50.00(元)</div>
         </a>
-        <a class="weui_cell" href="javascript:;">
+        <a onclick="dobuy('移动流量包2G',70)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包2G</p>
             </div>
             <div class="weui_cell_ft" style="color: red;">70.00(元)</div>
         </a>
-        <a class="weui_cell" href="javascript:;">
+        <a onclick="dobuy('移动流量包3G',100)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包3G</p>
             </div>
             <div class="weui_cell_ft" style="color: red;">100.00(元)</div>
         </a>
-        <a class="weui_cell" href="javascript:;">
+        <a onclick="dobuy('移动流量包4G',130)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包4G</p>
             </div>
             <div class="weui_cell_ft" style="color: red;">130.00(元)</div>
         </a>
-        <a class="weui_cell" href="javascript:;">
+        <a onclick="dobuy('移动流量包6G',180)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包6G</p>
             </div>
             <div class="weui_cell_ft" style="color: red;">180.00(元)</div>
         </a>
-        <a class="weui_cell" href="javascript:;">
+        <a onclick="dobuy('移动流量包11G',280)" class="weui_cell" href="javascript:;">
             <div class="weui_cell_bd weui_cell_primary">
                 <p>移动流量包11G</p>
             </div>
@@ -96,5 +95,64 @@
         </a>
     </div>
 </div>
+<!--BEGIN dialog1-->
+<div class="weui_dialog_confirm" id="dialog1" style="display: none;">
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">确定购买</strong></div>
+        <div class="weui_dialog_bd">是否跳转到微信支付?</div>
+        <div class="weui_dialog_ft">
+            <a href="javascript:;" class="weui_btn_dialog default">取消</a>
+            <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+        </div>
+    </div>
+</div>
+<!--END dialog1-->
 </body>
+<script src="./zepto.min.js"></script>
+<script type="text/javascript">
+$('#ordermphone').bind('input propertychange', function() { 
+ 	//进行相关操作 
+ 	var value = $("#ordermphone").val();
+	if(value.indexOf("136")==0){
+		$('#ordermplace').text("江苏无锡");
+	}
+	if(11==value.length){
+		$('.weui_cells_access').show();
+	}else if(value.length>11){
+		//截取前11个字符
+		value = value.substring(0,11);
+		$("#ordermphone").val(value);
+	}
+});
+ 
+function dobuy(ordermgoods,ordermmoney){
+	$('#dialog1').show().on('click', '.default', function () {
+	    $('#dialog1').off('click').hide();
+	}).on('click', '.primary', function () {
+		//确定
+		var json = '[{ORDERMPHONE:"'+$("#ordermphone").val()
+			+'",ORDERMGOODS:"'+ordermgoods
+			+'",ORDERMMONEY:"'+ordermmoney
+			+'",ORDERMPLACE:"'+$('#ordermplace').text()
+			+'"}]';
+		$.ajax({
+			url : "OrdermAction.do?method=insAll",
+			type : "post",
+			data : {
+				json : json
+			},
+			success:function(resp){
+				var respText = eval('('+resp+')');
+				alert(respText.msg);
+			},
+			error : function(resp){
+				var respText = eval('('+resp+')');
+				alert(respText.msg);
+			}
+		});
+	    $('#dialog1').off('click').hide();
+	});
+}
+</script>
 </html>
