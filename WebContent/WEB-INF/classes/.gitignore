@@ -1,2 +1,6 @@
+/GeoTrustGlobalCA.crt
 /com/
 /ds.config.xml
+/log4j.properties
+/wxcp.properties
+/wxpay.properties
