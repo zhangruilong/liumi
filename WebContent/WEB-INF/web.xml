@@ -26,13 +26,12 @@
  
  <servlet>
   <servlet-name>Oauth2</servlet-name>
-  <servlet-class>com.server.Oauth2</servlet-class>
+  <servlet-class>com.github.cuter44.Oauth2</servlet-class>
  </servlet>
  <servlet-mapping>
 	  <servlet-name>Oauth2</servlet-name>
-	  <url-pattern>/Oauth2</url-pattern>
+	  <url-pattern>/wechat/Oauth2</url-pattern>
  </servlet-mapping>
- 
  
  <!-- wxpay -->
   <servlet>
