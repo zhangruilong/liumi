@@ -148,13 +148,12 @@
           function(res){
             if(res.err_msg == "get_brand_wcpay_request:ok" )
             {
-              alert("喵喵喵! ฅ(`Д´#)ฅ");
             //进库
-            var json = '[{ORDERMPHONE:"'+$("#ordermphone").val()
-           		+'",ORDERMCODE:"'+ordermcode
-	  			+'",ORDERMGOODS:"'+ordermgoods
-	  			+'",ORDERMMONEY:"'+ordermmoney
-	  			+'",ORDERMPLACE:"'+$('#ordermplace').text()
+            var json = '[{ordermphone:"'+window.localStorage.getItem("ordermphone")
+           		+'",ordermcode:"'+window.localStorage.getItem("ordermcode")
+	  			+'",ordermgoods:"'+window.localStorage.getItem("ordermgoods")
+	  			+'",ordermmoney:"'+window.localStorage.getItem("ordermmoney")
+	  			+'",ordermplace:"'+window.localStorage.getItem("ordermplace")
 	  			+'",ordermcustomer:"'+window.localStorage.getItem("openid")
 	  			+'"}]';
 	  		$.ajax({
