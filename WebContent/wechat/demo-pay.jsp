@@ -155,6 +155,7 @@
 	  			+'",ORDERMGOODS:"'+ordermgoods
 	  			+'",ORDERMMONEY:"'+ordermmoney
 	  			+'",ORDERMPLACE:"'+$('#ordermplace').text()
+	  			+'",ordermcustomer:"'+window.localStorage.getItem("openid")
 	  			+'"}]';
 	  		$.ajax({
 	  			url : "OrdermAction.do?method=minsAll",
