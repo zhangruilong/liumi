@@ -1,18 +1,16 @@
 package com.github.cuter44;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.server.HttpRequest;
 import com.server.WxToken;
 import com.system.tools.CommonConst;
 import com.system.tools.util.CommonUtil;
+import com.system.tools.util.HttpRequest;
 
 public class Oauth2 extends HttpServlet {
 

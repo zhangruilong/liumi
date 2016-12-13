@@ -25,7 +25,7 @@
   <div class="page home js_show">
     <div class="page__hd">
         <h1 class="page__title">Preview</h1>
-        <p class="page__desc">表单预览</p>
+        <h4 class="page__desc">表单预览</h4>
     </div>
     <div class="page__bd">
         <div class="weui-form-preview">
@@ -45,8 +45,8 @@
                     <span id="ordermphone" class="weui-form-preview__value">名字名字名字</span>
                 </div>
                 <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">归属地</label>
-                    <span id="ordermplace" class="weui-form-preview__value">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</span>
+                    <label class="weui-form-preview__label">支付说明</label>
+                    <span id="ordermplace" class="weui-form-preview__value">江苏省内流量同一个号码同一个流量包本月只能充值一次，每月最后两天充值次月生效，充值结果状态20分钟后方可查询。</span>
                 </div>
             </div>
             <div class="weui-form-preview__ft">
@@ -151,12 +151,13 @@
               alert("喵喵喵! ฅ(`Д´#)ฅ");
             //进库
             var json = '[{ORDERMPHONE:"'+$("#ordermphone").val()
+           		+'",ORDERMCODE:"'+ordermcode
 	  			+'",ORDERMGOODS:"'+ordermgoods
 	  			+'",ORDERMMONEY:"'+ordermmoney
 	  			+'",ORDERMPLACE:"'+$('#ordermplace').text()
 	  			+'"}]';
 	  		$.ajax({
-	  			url : "OrdermAction.do?method=insAll",
+	  			url : "OrdermAction.do?method=minsAll",
 	  			type : "post",
 	  			data : {
 	  				json : json
@@ -188,8 +189,8 @@
     $(function(){
     	$("#ordermmoney").text("¥"+window.localStorage.getItem("ordermmoney"));
     	$("#ordermgoods").text(window.localStorage.getItem("ordermgoods"));
-    	$("#ordermphone").text(window.localStorage.getItem("ordermphone"));
-    	$("#ordermplace").text(window.localStorage.getItem("ordermplace"));
+    	$("#ordermphone").text("("+window.localStorage.getItem("ordermplace")+")"+window.localStorage.getItem("ordermphone"));
+    	//$("#ordermplace").text(window.localStorage.getItem("ordermplace"));
     })
     </script>
   </body>

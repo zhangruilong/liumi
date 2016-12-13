@@ -14,107 +14,53 @@
 </head>
 <body ontouchstart>
 	<div class="page home js_show">
-		<!-- <div class="page__hd">
-			<div class="weui-cells">
-				<div class="weui-cell">
-					<div class="weui-cell__bd">
-						<input id="ordermphone" class="weui-input" type="tel"
-							placeholder="请输入手机号">
-					</div>
-					<div id="ordermplace" class="weui-cell__ft">归属地</div>
-				</div>
-			</div>
-		</div> -->
 		<div class="page__bd" style="height: 100%;">
         <div class="weui-tab">
             <div class="weui-tab__panel">
-			<div class="weui-cells">
-				<div class="weui-cell"></div>
-				<div class="weui-cell">
-					<div class="weui-cell__bd">
-						<input id="ordermphone" class="weui-input" type="tel"
-							placeholder="请输入手机号">
-					</div>
-					<div id="ordermplace" class="weui-cell__ft">归属地</div>
-				</div>
-				<div class="weui-cell"></div>
-				<a onclick="dobuy('100010','移动流量包10M','3.00')" class="weui-cell weui-cell_access"
-					href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包10M</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">3.00(元)</div>
-				</a><a onclick="dobuy('100030','移动流量包30M','5.00')" class="weui-cell weui-cell_access"
-					href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包30M</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">5.00(元)</div>
-				</a> <a onclick="dobuy('100100','移动流量包100M','10.00')"
-					class="weui-cell weui-cell_access" href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包100M</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">10.00(元)</div>
-				</a> <a onclick="dobuy('100300','移动流量包300M','20.00')"
-					class="weui-cell weui-cell_access" href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包300M</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">20.00(元)</div>
-				</a> <a onclick="dobuy('100500','移动流量包500M','30.00')"
-					class="weui-cell weui-cell_access" href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包500M</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">30.00(元)</div>
-				</a> <a onclick="dobuy('100700','移动流量包700M','40.00')"
-					class="weui-cell weui-cell_access" href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包700M</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">40.00(元)</div>
-				</a> <a onclick="dobuy('101024','移动流量包1G','50.00')" class="weui-cell weui-cell_access"
-					href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包1G</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">50.00(元)</div>
-				</a> <a onclick="dobuy('102048','移动流量包2G','70.00)" class="weui-cell weui-cell_access"
-					href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包2G</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">70.00(元)</div>
-				</a> <a onclick="dobuy('103072','移动流量包3G','100.00')"
-					class="weui-cell weui-cell_access" href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包3G</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">100.00(元)</div>
-				</a> <a onclick="dobuy('104096','移动流量包4G','130.00')"
-					class="weui-cell weui-cell_access" href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包4G</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">130.00(元)</div>
-				</a> <a onclick="dobuy('106144','移动流量包6G','180.00')"
-					class="weui-cell weui-cell_access" href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包6G</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">180.00(元)</div>
-				</a> <a onclick="dobuy('111264','移动流量包11G','280.00')"
-					class="weui-cell weui-cell_access" href="javascript:;">
-					<div class="weui-cell__bd">
-						<p>移动流量包11G</p>
-					</div>
-					<div class="weui-cell__ft" style="color: red;">280.00(元)</div>
-				</a>
-			</div>
+	        <div class="weui-panel weui-panel_access">
+	            <div class="weui-panel__bd">
+	                <a href="javascript:void(0);" class="weui-btn weui-btn_disabled weui-btn_warn weui-media-box weui-media-box_appmsg">
+	                    <div class="weui-media-box__bd">
+	                        <h4 class="weui-media-box__title">会员积分：500</h4>
+	                        <p class="weui-media-box__title"><i class="weui-icon-success"></i>已绑定手机：136****9712</p>
+	                    </div>
+	                </a>
+	            </div>
+	        </div>
+			<div class="weui-cells__title"></div>
+	        <div class="weui-cells">
+	            <a class="weui-cell weui-cell_access" href="javascript:;">
+	                <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>流量充值记录</p>
+	                </div>
+	                <div class="weui-cell__ft"></div>
+	            </a>
+	            <a class="weui-cell weui-cell_access" href="javascript:;">
+	                <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>幸运大抽奖</p>
+	                </div>
+	                <div class="weui-cell__ft"></div>
+	            </a>
+	            <a class="weui-cell weui-cell_access" href="javascript:;">
+	                <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>如何查询流量是否到账?</p>
+	                </div>
+	                <div class="weui-cell__ft"></div>
+	            </a>
+	            <a class="weui-cell weui-cell_access" href="javascript:;">
+	                <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>联系客服（点此联系在线客服）</p>
+	                </div>
+	                <div class="weui-cell__ft"></div>
+	            </a>
+	        </div>
             </div>
             <div class="weui-tabbar">
-                <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+                <a href="index.jsp" class="weui-tabbar__item">
                     <span style="display: inline-block;position: relative;">
                         <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
                         <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">12</span>
@@ -132,7 +78,7 @@
                     </span>
                     <p class="weui-tabbar__label">发现</p>
                 </a>
-                <a href="mine.jsp" class="weui-tabbar__item">
+                <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
                     <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
                     <p class="weui-tabbar__label">我</p>
                 </a>
