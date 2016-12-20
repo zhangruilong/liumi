@@ -81,7 +81,7 @@
           .setBody          (request.getParameter("body")                         )
           .setTotalFee      (Double.valueOf(request.getParameter("total_fee"))    )
           .setOpenid        (request.getParameter("openid")                       )
-          .setOutTradeNo    ("wxpay-demopay-"+Long.toString(new Date().getTime()) )
+          .setOutTradeNo    (request.getParameter("out_trade_no")				  )
           .setSpbillCreateIp(request.getRemoteAddr()                              )
           .setTradeType     (TradeType.JSAPI                                      )
           .build()
@@ -155,6 +155,7 @@
 	  			+'",ordermmoney:"'+window.localStorage.getItem("ordermmoney")
 	  			+'",ordermplace:"'+window.localStorage.getItem("ordermplace")
 	  			+'",ordermcustomer:"'+window.localStorage.getItem("openid")
+	  			+'",ordermid:"'+window.localStorage.getItem("ordermid")
 	  			+'"}]';
 	  		$.ajax({
 	  			url : "OrdermAction.do?method=minsAll",

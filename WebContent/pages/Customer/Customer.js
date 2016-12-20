@@ -1,5 +1,5 @@
 Ext.onReady(function() {
-	var Customerclassify = "客户";
+	var Customerclassify = "customer";
 	var Customertitle = "当前位置:业务管理》" + Customerclassify;
 	var Customeraction = "CustomerAction.do";
 	var Customerfields = ['customerid'
@@ -15,7 +15,7 @@ Ext.onReady(function() {
 	        			    ,'customerstatue' 
 	        			      ];// 全部字段
 	var Customerkeycolumn = [ 'customerid' ];// 主键
-	var Customerstore = dataStore(Customerfields, basePath + Customeraction + "?method=selQuery");// 定义Customerstore
+	var Customerstore = dataStore(Customerfields, basePath + Customeraction + "?method=selAll");// 定义Customerstore
 	var CustomerdataForm = Ext.create('Ext.form.Panel', {// 定义新增和修改的FormPanel
 		id:'CustomerdataForm',
 		labelAlign : 'right',
@@ -59,7 +59,7 @@ Ext.onReady(function() {
 			layout : 'form',
 			items : [ {
 				xtype : 'textfield',
-				fieldLabel : '手机号码',
+				fieldLabel : '手机',
 				id : 'Customercustomerphone',
 				name : 'customerphone',
 				maxLength : 100
@@ -70,7 +70,7 @@ Ext.onReady(function() {
 			layout : 'form',
 			items : [ {
 				xtype : 'textfield',
-				fieldLabel : '归属地',
+				fieldLabel : '归属',
 				id : 'Customercustomerplace',
 				name : 'customerplace',
 				maxLength : 100
@@ -92,7 +92,7 @@ Ext.onReady(function() {
 			layout : 'form',
 			items : [ {
 				xtype : 'textfield',
-				fieldLabel : '用户名',
+				fieldLabel : '用户',
 				id : 'Customercustomername',
 				name : 'customername',
 				maxLength : 100
@@ -145,13 +145,13 @@ Ext.onReady(function() {
 		]
 	});
 	
-	var Customerbbar = pagesizebar(Customerstore);//定义分页
+	//var Customerbbar = pagesizebar(Customerstore);//定义分页
 	var Customergrid =  Ext.create('Ext.grid.Panel', {
 		height : document.documentElement.clientHeight - 4,
 		width : '100%',
-		title : Customertitle,
+		//title : Customertitle,
 		store : Customerstore,
-		bbar : Customerbbar,
+		//bbar : Customerbbar,
 	    selModel: {
 	        type: 'checkboxmodel'
 	    },
@@ -159,7 +159,7 @@ Ext.onReady(function() {
 	         ptype: 'cellediting',
 	         clicksToEdit: 1
 	    },
-		columns : [{xtype: 'rownumberer',width:36}, 
+		columns : [{xtype: 'rownumberer',width:50}, 
 		{// 改
 			header : 'ID',
 			dataIndex : 'customerid',
@@ -186,7 +186,7 @@ Ext.onReady(function() {
             }
 		}
 		, {
-			header : '手机号码',
+			header : '手机',
 			dataIndex : 'customerphone',
 			sortable : true,  
 			editor: {
@@ -194,7 +194,7 @@ Ext.onReady(function() {
             }
 		}
 		, {
-			header : '归属地',
+			header : '归属',
 			dataIndex : 'customerplace',
 			sortable : true,  
 			editor: {
@@ -210,7 +210,7 @@ Ext.onReady(function() {
             }
 		}
 		, {
-			header : '用户名',
+			header : '用户',
 			dataIndex : 'customername',
 			sortable : true,  
 			editor: {
@@ -309,20 +309,14 @@ Ext.onReady(function() {
 	        					commonImp(basePath + Customeraction + "?method=impAll","导入",Customerstore);
 	        				}
 	                    },{
-	                    	text : "后台导出",
+	                    	text : "导出",
 	        				iconCls : 'exp',
 	        				handler : function() {
 	        					Ext.Msg.confirm('请确认', '<b>提示:</b>请确认要导出当前数据？', function(btn, text) {
 	        						if (btn == 'yes') {
-	        							window.location.href = basePath + Customeraction + "?method=expAll"; 
+	        							window.location.href = basePath + Customeraction + "?method=expAll&json="+queryjson+"&query="+Ext.getCmp("queryCustomeraction").getValue(); 
 	        						}
 	        					});
-	        				}
-	                    },{
-	                    	text : "前台导出",
-	        				iconCls : 'exp',
-	        				handler : function() {
-	        					commonExp(Customergrid);
 	        				}
 	                    },{
 	                    	text : "附件",
@@ -345,7 +339,7 @@ Ext.onReady(function() {
     						iconCls : 'select',
     						handler : function() {
     							Ext.getCmp("Customercustomerid").setEditable (true);
-    							createQueryWindow("筛选", CustomerdataForm, Customerstore);
+    							createQueryWindow("筛选", CustomerdataForm, Customerstore,Ext.getCmp("queryCustomeraction").getValue());
     						}
     					}]
 	                }
@@ -361,10 +355,15 @@ Ext.onReady(function() {
 					specialkey : function(field, e) {
 						if (e.getKey() == Ext.EventObject.ENTER) {
 							if ("" == Ext.getCmp("queryCustomeraction").getValue()) {
-								Customerstore.load();
+								Customerstore.load({
+									params : {
+										json : queryjson
+									}
+								});
 							} else {
 								Customerstore.load({
 									params : {
+										json : queryjson,
 										query : Ext.getCmp("queryCustomeraction").getValue()
 									}
 								});
@@ -376,11 +375,6 @@ Ext.onReady(function() {
 		]
 	});
 	Customergrid.region = 'center';
-	Customerstore.on("beforeload",function(){ 
-		Customerstore.baseParams = {
-				query : Ext.getCmp("queryCustomeraction").getValue()
-		}; 
-	});
 	Customerstore.load();//加载数据
 	var win = new Ext.Viewport({//只能有一个viewport
 		resizable : true,

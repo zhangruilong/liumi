@@ -1,5 +1,5 @@
 Ext.onReady(function() {
-	var Ordermclassify = "充值记录";
+	var Ordermclassify = "orderm";
 	var Ordermtitle = "当前位置:业务管理》" + Ordermclassify;
 	var Ordermaction = "OrdermAction.do";
 	var Ordermfields = ['ordermid'
@@ -14,7 +14,7 @@ Ext.onReady(function() {
 	        			    ,'ordermstatue' 
 	        			      ];// 全部字段
 	var Ordermkeycolumn = [ 'ordermid' ];// 主键
-	var Ordermstore = dataStore(Ordermfields, basePath + Ordermaction + "?method=selQuery");// 定义Ordermstore
+	var Ordermstore = dataStore(Ordermfields, basePath + Ordermaction + "?method=selAll");// 定义Ordermstore
 	var OrdermdataForm = Ext.create('Ext.form.Panel', {// 定义新增和修改的FormPanel
 		id:'OrdermdataForm',
 		labelAlign : 'right',
@@ -58,7 +58,7 @@ Ext.onReady(function() {
 			layout : 'form',
 			items : [ {
 				xtype : 'textfield',
-				fieldLabel : '充值号码',
+				fieldLabel : '号码',
 				id : 'Ordermordermphone',
 				name : 'ordermphone',
 				maxLength : 100
@@ -69,7 +69,7 @@ Ext.onReady(function() {
 			layout : 'form',
 			items : [ {
 				xtype : 'textfield',
-				fieldLabel : '充值时间',
+				fieldLabel : '时间',
 				id : 'Ordermordermdate',
 				name : 'ordermdate',
 				maxLength : 100
@@ -80,7 +80,7 @@ Ext.onReady(function() {
 			layout : 'form',
 			items : [ {
 				xtype : 'textfield',
-				fieldLabel : '充值套餐',
+				fieldLabel : '套餐',
 				id : 'Ordermordermgoods',
 				name : 'ordermgoods',
 				maxLength : 100
@@ -91,7 +91,7 @@ Ext.onReady(function() {
 			layout : 'form',
 			items : [ {
 				xtype : 'textfield',
-				fieldLabel : '充值金额',
+				fieldLabel : '金额',
 				id : 'Ordermordermmoney',
 				name : 'ordermmoney',
 				maxLength : 100
@@ -133,13 +133,13 @@ Ext.onReady(function() {
 		]
 	});
 	
-	var Ordermbbar = pagesizebar(Ordermstore);//定义分页
+	//var Ordermbbar = pagesizebar(Ordermstore);//定义分页
 	var Ordermgrid =  Ext.create('Ext.grid.Panel', {
 		height : document.documentElement.clientHeight - 4,
 		width : '100%',
-		title : Ordermtitle,
+		//title : Ordermtitle,
 		store : Ordermstore,
-		bbar : Ordermbbar,
+		//bbar : Ordermbbar,
 	    selModel: {
 	        type: 'checkboxmodel'
 	    },
@@ -147,7 +147,7 @@ Ext.onReady(function() {
 	         ptype: 'cellediting',
 	         clicksToEdit: 1
 	    },
-		columns : [{xtype: 'rownumberer',width:36}, 
+		columns : [{xtype: 'rownumberer',width:50}, 
 		{// 改
 			header : 'ID',
 			dataIndex : 'ordermid',
@@ -174,7 +174,7 @@ Ext.onReady(function() {
             }
 		}
 		, {
-			header : '充值号码',
+			header : '号码',
 			dataIndex : 'ordermphone',
 			sortable : true,  
 			editor: {
@@ -182,7 +182,7 @@ Ext.onReady(function() {
             }
 		}
 		, {
-			header : '充值时间',
+			header : '时间',
 			dataIndex : 'ordermdate',
 			sortable : true,  
 			editor: {
@@ -190,7 +190,7 @@ Ext.onReady(function() {
             }
 		}
 		, {
-			header : '充值套餐',
+			header : '套餐',
 			dataIndex : 'ordermgoods',
 			sortable : true,  
 			editor: {
@@ -198,7 +198,7 @@ Ext.onReady(function() {
             }
 		}
 		, {
-			header : '充值金额',
+			header : '金额',
 			dataIndex : 'ordermmoney',
 			sortable : true,  
 			editor: {
@@ -289,20 +289,14 @@ Ext.onReady(function() {
 	        					commonImp(basePath + Ordermaction + "?method=impAll","导入",Ordermstore);
 	        				}
 	                    },{
-	                    	text : "后台导出",
+	                    	text : "导出",
 	        				iconCls : 'exp',
 	        				handler : function() {
 	        					Ext.Msg.confirm('请确认', '<b>提示:</b>请确认要导出当前数据？', function(btn, text) {
 	        						if (btn == 'yes') {
-	        							window.location.href = basePath + Ordermaction + "?method=expAll"; 
+	        							window.location.href = basePath + Ordermaction + "?method=expAll&json="+queryjson+"&query="+Ext.getCmp("queryOrdermaction").getValue(); 
 	        						}
 	        					});
-	        				}
-	                    },{
-	                    	text : "前台导出",
-	        				iconCls : 'exp',
-	        				handler : function() {
-	        					commonExp(Ordermgrid);
 	        				}
 	                    },{
 	                    	text : "附件",
@@ -325,7 +319,7 @@ Ext.onReady(function() {
     						iconCls : 'select',
     						handler : function() {
     							Ext.getCmp("Ordermordermid").setEditable (true);
-    							createQueryWindow("筛选", OrdermdataForm, Ordermstore);
+    							createQueryWindow("筛选", OrdermdataForm, Ordermstore,Ext.getCmp("queryOrdermaction").getValue());
     						}
     					}]
 	                }
@@ -341,10 +335,15 @@ Ext.onReady(function() {
 					specialkey : function(field, e) {
 						if (e.getKey() == Ext.EventObject.ENTER) {
 							if ("" == Ext.getCmp("queryOrdermaction").getValue()) {
-								Ordermstore.load();
+								Ordermstore.load({
+									params : {
+										json : queryjson
+									}
+								});
 							} else {
 								Ordermstore.load({
 									params : {
+										json : queryjson,
 										query : Ext.getCmp("queryOrdermaction").getValue()
 									}
 								});
@@ -356,11 +355,6 @@ Ext.onReady(function() {
 		]
 	});
 	Ordermgrid.region = 'center';
-	Ordermstore.on("beforeload",function(){ 
-		Ordermstore.baseParams = {
-				query : Ext.getCmp("queryOrdermaction").getValue()
-		}; 
-	});
 	Ordermstore.load();//加载数据
 	var win = new Ext.Viewport({//只能有一个viewport
 		resizable : true,

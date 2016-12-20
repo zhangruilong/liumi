@@ -21,7 +21,7 @@
 	            <div class="weui-panel__bd">
 	                <a href="javascript:void(0);" class="weui-btn weui-btn_disabled weui-btn_warn weui-media-box weui-media-box_appmsg">
 	                    <div class="weui-media-box__bd">
-	                        <h4 class="weui-media-box__title">会员积分：500</h4>
+	                        <h4 class="weui-media-box__title">会员积分：500分</h4>
 	                        <p class="weui-media-box__title"><i class="weui-icon-success"></i>已绑定手机：136****9712</p>
 	                    </div>
 	                </a>
@@ -87,5 +87,26 @@
     </div>
 	</div>
 <script type="text/javascript">
+$(function(){
+	$.ajax({
+			url : "CustomerAction.do?method=selAll",
+			type : "post",
+			data : {
+				wheresql : "openid='"+window.localStorage.getItem("openid")+"'"
+			},
+			success:function(resp){
+				var respText = eval('('+resp+')');
+				$(".weui-media-box__bd").html("");
+				 $.each(respText.root, function(i, item) {
+					$(".weui-media-box__bd").append('<h4 class="weui-media-box__title">会员积分：'+item.customerpoint+'分</h4>'+
+	                        '<p class="weui-media-box__title"><i class="weui-icon-success"></i>已绑定手机：'+item.customerphone+'</p>');
+			   });
+			},
+			error : function(resp){
+				var respText = eval('('+resp+')');
+				alert(respText.msg);
+			}
+		});
+})
 </script>
 </html>

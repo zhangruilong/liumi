@@ -13,6 +13,7 @@ import com.system.tools.base.BaseActionDao;
 import com.system.tools.pojo.Fileinfo;
 import com.system.tools.pojo.Queryinfo;
 import com.system.tools.util.CommonUtil;
+import com.system.tools.util.DateUtils;
 import com.system.tools.util.FileUtil;
 import com.system.tools.util.HttpRequest;
 import com.system.tools.pojo.Pageinfo;
@@ -89,29 +90,6 @@ public class OrdermAction extends BaseActionDao {
 		Queryinfo queryinfo = getQueryinfo(request, Orderm.class, OrdermPoco.QUERYFIELDNAME, OrdermPoco.ORDER, TYPE);
 		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
 		result = CommonConst.GSON.toJson(pageinfo);
-		responsePW(response, result);
-	}
-	//新增
-	public void minsAll(HttpServletRequest request, HttpServletResponse response){
-		String json = request.getParameter("json");
-		System.out.println("json : " + json);
-		json = json.replace("\"\"", "null");
-		if(CommonUtil.isNotEmpty(json)) cuss = CommonConst.GSON.fromJson(json, TYPE);
-		for(Orderm temp:cuss){
-			if(CommonUtil.isNull(temp.getOrdermid()))
-				temp.setOrdermid(CommonUtil.getNewId());
-			result = insSingle(temp);
-			if(CommonConst.SUCCESS.equals(result)){
-				//冲流量
-				// 发送 GET 请求
-				String s = HttpRequest.sendGet(
-						"https://114.55.54.41:8089/dtstp/suopai/openapi/charge.action",
-						"userNo=147184382574201&userKey=b8e1d969-1820-4a07-81e5-2bf225007728&mobile="
-								+ temp.getOrdermphone() + "&productNo="+temp.getOrdermcode()
-								+ "&orderId=" + temp.getOrdermid());
-				System.out.println(s);
-			}
-		}
 		responsePW(response, result);
 	}
 }

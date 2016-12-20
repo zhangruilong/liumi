@@ -32,7 +32,7 @@
 	<bean id="Cms_jobpublishAction" class="com.cms.action.Cms_jobpublishAction" />
 	<bean id="Cms_contentAction" class="com.cms.action.more.Cms_contentAction" />
 
-	<bean id="OrdermAction" class="com.server.action.OrdermAction" />
+	<bean id="OrdermAction" class="com.server.action.more.OrdermAction" />
 	<bean id="CustomerAction" class="com.server.action.CustomerAction" />
 
 </beans>

@@ -35,18 +35,18 @@ $(function(){
 			url : "OrdermAction.do?method=selAll",
 			type : "post",
 			data : {
-				/* wheresql : "ordermcustomer='"+window.localStorage.getItem("openid")+"'" */
+				wheresql : "ordermcustomer='"+window.localStorage.getItem("openid")+"'"
 			},
 			success:function(resp){
 				var respText = eval('('+resp+')');
 				$(".weui-panel__bd").html("");
 				 $.each(respText.root, function(i, item) {
 					$(".weui-panel__bd").append('<div class="weui-media-box weui-media-box_text">'+
-							'<h4 class="weui-media-box__title">'+item.ordermgoods+'</h4>'+
+							'<h4 class="weui-media-box__title">'+item.ordermgoods+' ¥'+item.ordermmoney+'</h4>'+
 			                '<p class="weui-media-box__desc">充值手机：（'+item.ordermplace+'）'+item.ordermphone+'</p>'+
 			                '<ul class="weui-media-box__info">'+
 			                    '<li class="weui-media-box__info__meta">'+item.ordermdate+'</li>'+
-			                    '<li class="weui-media-box__info__meta weui-media-box__info__meta_extra">¥'+item.ordermmoney+'(元)</li>'+
+			                    '<li class="weui-media-box__info__meta weui-media-box__info__meta_extra">'+item.ordermstatue+'</li>'+
 			                '</ul>'+
 			            '</div>');
 			   });
