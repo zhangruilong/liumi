@@ -12,6 +12,7 @@
 <script src="./zepto.min.js"></script>
 <script src="./weui.min.js"></script>
 <script src="../zrlextpages/common/commonunits.js"></script>
+<script src="js/phoneplace.js"></script>
 </head>
 <body ontouchstart>
 	<div class="page home js_show">
@@ -251,10 +252,8 @@ function regedict(){
 $('#ordermphone').bind('input propertychange', function() {
 	//进行相关操作 
 	var value = $("#ordermphone").val();
-	if (value.indexOf("136") == 0) {
-		$('#ordermplace').text("江苏无锡");
-	}
 	if (11 == value.length) {
+		$('#ordermplace').text(phoneplace(value));
 		$('.weui_cells_access').show();
 	} else if (value.length > 11) {
 		//截取前11个字符
