@@ -122,7 +122,7 @@
                     </span>
                     <p class="weui-tabbar__label">商城</p>
                 </a>
-                <a href="javascript:;" class="weui-tabbar__item">
+                <a href="choujiang.jsp" class="weui-tabbar__item">
                     <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
                     <p class="weui-tabbar__label">抽奖</p>
                 </a>
