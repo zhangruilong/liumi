@@ -209,7 +209,6 @@ $(function(){
 								//确定
 								//用户注册
 								regedict();
-								location.reload();
 							});
 				}else if(respText.root[0].customerstatue=='禁用'){
 					alert('您的账号已被禁用,请联系客服！');
@@ -228,26 +227,34 @@ $(function(){
 })
 function regedict(){
 	var regedictphone = $("#regedictphone").val();
-	//进库
-    var json = '[{customerphone:"'+regedictphone
-   			+'",openid:"'+window.localStorage.getItem("openid")
-			+'",customerpoint:"'+88
-			+'"}]';
-		$.ajax({
-			url : "CustomerAction.do?method=insAll",
-			type : "post",
-			data : {
-				json : json
-			},
-			success:function(resp){
-				var respText = eval('('+resp+')');
-				alert(respText.msg);
-			},
-			error : function(resp){
-				var respText = eval('('+resp+')');
-				alert(respText.msg);
-			}
-		});
+	if (11 != regedictphone.length) {
+		$('#iosDialog2').fadeIn(200).on('click', '.weui-dialog__btn_primary',
+				function() {
+					$(this).parents('.js_dialog').fadeOut(200);
+				})
+	}else{
+		//进库
+	    var json = '[{customerphone:"'+regedictphone
+	   			+'",openid:"'+window.localStorage.getItem("openid")
+				+'",customerpoint:"'+88
+				+'"}]';
+			$.ajax({
+				url : "CustomerAction.do?method=insAll",
+				type : "post",
+				data : {
+					json : json
+				},
+				success:function(resp){
+					var respText = eval('('+resp+')');
+					alert(respText.msg);
+					location.reload();
+				},
+				error : function(resp){
+					var respText = eval('('+resp+')');
+					alert(respText.msg);
+				}
+			});
+	}
 }
 $('#ordermphone').bind('input propertychange', function() {
 	//进行相关操作 

@@ -27,7 +27,7 @@ public class Oauth2 extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 //		先设置微信菜单路径
-//		https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx72be01715edde1fb&redirect_uri=http%3A%2F%2Fszslsl.com%2Fliumi%2FOauth2&response_type=code&scope=snsapi_base&state=1#wechat_redirect
+//		https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx72be01715edde1fb&redirect_uri=http%3A%2F%2Fszslsl.com%2Fliumi%2FOauth2&response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect
 		
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
