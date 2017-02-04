@@ -166,6 +166,7 @@
 	  			success:function(resp){
 	  				var respText = eval('('+resp+')');
 	  				alert(respText.msg);
+	  				window.location.href = "orderm.jsp";
 	  			},
 	  			error : function(resp){
 	  				var respText = eval('('+resp+')');
