@@ -222,13 +222,13 @@ function drawRouletteWheel() {
             <div class="weui-tabbar">
                 <a href="index.jsp" class="weui-tabbar__item">
                     <span style="display: inline-block;position: relative;">
-                        <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                        <img src="./myimages/shancheng.jpg" alt="" class="weui-tabbar__icon">
                         <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">12</span>
                     </span>
                     <p class="weui-tabbar__label">商城</p>
                 </a>
                 <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
-                    <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <img src="./myimages/choujiang.jpg" alt="" class="weui-tabbar__icon">
                     <p class="weui-tabbar__label">抽奖</p>
                 </a>
                 <a href="javascript:;" class="weui-tabbar__item">
@@ -239,7 +239,7 @@ function drawRouletteWheel() {
                     <p class="weui-tabbar__label">发现</p>
                 </a>
                 <a href="mine.jsp" class="weui-tabbar__item">
-                    <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <img src="./myimages/wode.jpg" alt="" class="weui-tabbar__icon">
                     <p class="weui-tabbar__label">我</p>
                 </a>
             </div>
