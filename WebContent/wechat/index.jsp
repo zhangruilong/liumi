@@ -293,7 +293,7 @@ function dobuy(ordermcode, ordermgoods, ordermmoney) {
 					window.localStorage.setItem("ordermmoney",ordermmoney);
 					window.location.href = "demo-pay.jsp?action=sign&openid="
 							+ window.localStorage.getItem("openid") + "&body="
-							+ ordermgoods + "&total_fee=" + 0.01
+							+ ordermgoods + "&total_fee=" + ordermmoney
 							+ "&out_trade_no=" + ordermid;
 				});
 	}
