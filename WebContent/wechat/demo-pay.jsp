@@ -76,7 +76,8 @@
       {
         request.setCharacterEncoding("utf-8");
         WxpayFactory factory = WxpayFactory.getDefaultInstance();
-
+    	String bodyvalue = request.getParameter("body");
+    	bodyvalue = new String(bodyvalue.getBytes("iso8859-1"),"utf-8");
         UnifiedOrder order = ((UnifiedOrder)factory.instantiate(UnifiedOrder.class))
           .setBody          (request.getParameter("body")                         )
           .setTotalFee      (Double.valueOf(request.getParameter("total_fee"))    )
