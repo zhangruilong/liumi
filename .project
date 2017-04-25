@@ -29,14 +29,14 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>zrlextsrc</name>
+			<name>WORKSPACE_LOC</name>
 			<type>2</type>
-			<location>/Users/zhangruilong/Documents/develop/j2eeworkspace/zrlext/src</location>
+			<locationURI>WORKSPACE_LOC/zrlext/src</locationURI>
 		</link>
 		<link>
 			<name>WebContent/zrlextpages</name>
 			<type>2</type>
-			<location>/Users/zhangruilong/Documents/develop/j2eeworkspace/zrlext/WebContent/zrlextpages</location>
+			<locationURI>WORKSPACE_LOC/zrlext/WebContent/zrlextpages</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

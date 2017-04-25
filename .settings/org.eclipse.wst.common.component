@@ -2,7 +2,7 @@
 	<wb-module deploy-name="zrl">
 		<wb-resource deploy-path="/" source-path="/WebContent"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/zrlextsrc"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WORKSPACE_LOC"/>
 		<property name="java-output-path" value="/zrl/build/classes"/>
 		<property name="context-root" value="zrl"/>
 	</wb-module>
